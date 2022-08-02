@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Student Registration {% endblock title %}
+
+{% block body %}
+
+<div class="ml-72 font-mono text-3xl mt-6 text-gray-700">
+    Student Registration
+</div>
+<div class="mt-4 ml-72 p-10 w-[60%] flex justify-between border-2 border-gray-100 shadow-lg">
+    <div class="border-r-2 border-gray-200 pr-14 mt-3.5">
+        <img class="w-[27rem] h-[23rem] mt-16" src="../../static/img/school.webp" alt="">
+    </div>
+    <form method="post" action="/sregister/" class="flex flex-col w-[35%]">{% csrf_token %}
+        <input class="border-b-2 border-gray-400 outline-none my-3" type="text" placeholder="First name" id="fname" name="fname" required>
+        <input class="border-b-2 border-gray-400 outline-none my-3" type="text" placeholder="Last name" id="lname" name="lname" required>
+        <input class="border-b-2 border-gray-400 outline-none my-3" type="email" name="email" id="email" placeholder="Email" required>
+        <input class="border-b-2 border-gray-400 outline-none my-3" type="number" name="studclass" id="studclass" placeholder="Class (1 to 12)" required>
+        <div class="flex justify-between">
+            <label class="my-3 text-gray-500 border-b-2 border-gray-400" for="section">Section:</label>
+            <select class="outline-none" name="section" id="section" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+        <div class="flex justify-between">
+            <label class="my-3 text-gray-500 border-b-2 border-gray-400" for="stream">Stream:</label>
+            <select class="outline-none" name="stream" id="stream" required>
+                <option value="Science">Science</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Arts">Arts</option>
+            </select>
+        </div>
+        <input class="border-b-2 border-gray-400 outline-none my-3" type="number" name="rollno" id="rollno" placeholder="Roll no." required>
+        <input class="border-b-2 border-gray-400 outline-none my-3" type="password" name="pass1" id="pass1" placeholder="Password" required>
+        <input class="border-b-2 border-gray-400 outline-none my-3" type="password" name="pass2" id="2" placeholder="Repeat password" required>
+        <button type="submit" class="text-left my-2 bg-gray-800 border-2 border-black text-white hover:bg-gray-700 hover:border-gray-600 focus:bg-black px-5 py-1.5 w-fit">Register</button>
+        <a class="mt-1 text-blue-700" href="/login">Already have an account! Log in</a>
+    </form>
+</div>
+
+{% endblock body %}

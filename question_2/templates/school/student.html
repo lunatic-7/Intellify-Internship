@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Intellify - Home {% endblock title %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+<div class="ml-20 mt-16 flex flex-col">
+    <h1 class="text-3xl pb-10  font-mono">Student: <span class="font-bold text-red-500">{{request.user.first_name}}</span></h1>
+    <div class="space-y-3 text-2xl font-serif">
+        <p>Name: {{request.user.first_name}} {{request.user.last_name}}</p>
+        <p>Section: {{profile.rollno}} </p>
+        <p>Email: {{request.user.email}} </p>
+        <p>Stream: {{profile.stream}} </p>
+        <p>Standard: {{profile.studclass}} </p>
+        <p>Section: {{profile.section}} </p>
+    </div>
+</div>
+{% endif %}
+
+{% endblock body %}

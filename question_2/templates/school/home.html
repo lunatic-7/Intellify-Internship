@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Intellify - Home {% endblock title %}
+
+{% block list %} 
+
+{% if profile.rollno %}
+<a href="/student" class="hover:text-white">Student Profile</a>
+{% elif profile.phone %}
+<a href="/teacher" class="hover:text-white">Teacher Profile</a>
+{% endif %}
+
+{% endblock list %}
+
+{% block body %}
+
+<div class="px-20 pt-20 pb-10 space-y-3 w-[70%]">
+    <h1 class="text-4xl">Welcome to Intellify School</h1>
+    <p>Here <span class="font-semibold">Intellify</span> teachers and students can register, and can recieve latest announcements and notifications.</p>
+    <hr>
+    <p class="text-gray-500">For any query, feel free to contact us using our <a href="/contact" class="text-black font-semibold">Contact Us</a> page</p>
+    
+    {% if user.is_authenticated %}
+    <div class="flex space-x-2">
+        <p class="font-mono mt-2">Welcome <span class="text-red-500 font-semibold">{{request.user}}</span></p>
+        <a href="/logout" class="text-left bg-gray-800 border-2 border-black text-white hover:bg-gray-700 hover:border-gray-600 focus:bg-black px-5 py-1.5 w-fit">Log out</a>
+    </div>
+    {% else %}
+    <div class="py-5 space-x-2">
+        <a href="/login" class="text-left bg-gray-800 border-2 border-black text-white hover:bg-gray-700 hover:border-gray-600 focus:bg-black px-5 py-1.5 w-fit">Log in</a>
+        <a href="/tregister" class="text-left bg-gray-800 border-2 border-black text-white hover:bg-gray-700 hover:border-gray-600 focus:bg-black px-5 py-1.5 w-fit">Teacher Register</a>
+        <a href="/sregister" class="text-left bg-gray-800 border-2 border-black text-white hover:bg-gray-700 hover:border-gray-600 focus:bg-black px-5 py-1.5 w-fit">Student Register</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock body %}

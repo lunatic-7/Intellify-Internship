@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Intellify - Contact {% endblock title %}
+
+{% block body %}
+
+<h1 class="ml-20 mt-16 text-2xl font-mono font-bold">Intellify Contact</h1>
+<form method="post" action="/contact/" class="flex flex-col mt-4 ml-20 p-10 space-y-6 w-[60%] border-2 shadow-xl border-gray-200"> {% csrf_token %}
+    <input id="name" name="name" type="text" placeholder="Name" class="border-b-2 border-gray-400 outline-none">
+    <input id="email" type="email" name="email" placeholder="Email" class="border-b-2 border-gray-400 outline-none">
+    <input id="phone" type="text" name="phone" placeholder="Phone number" class="border-b-2 border-gray-400 outline-none">
+    <textarea id="content" name="content" cols="30" rows="7" class="border-2 border-gray-400 p-2" placeholder="Write your message here..."></textarea>
+    <button type="submit" class="text-left bg-gray-800 border-2 border-black text-white hover:bg-gray-700 hover:border-gray-600 focus:bg-black px-5 py-1.5 w-fit">SUBMIT</button>
+</form>
+
+{% endblock body %}
